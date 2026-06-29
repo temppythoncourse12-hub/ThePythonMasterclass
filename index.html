@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Python Masterclass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pythonBlue: '#306998',
+                        pythonYellow: '#FFD43B',
+                        pythonDark: '#2B5B84'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans transition-all duration-300">
+
+    <!-- Navigation -->
+    <nav class="bg-pythonBlue text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold flex items-center gap-2 cursor-pointer" onclick="navigate('home')">
+                    <i class="fa-brands fa-python text-pythonYellow text-3xl"></i>
+                    <span data-i18n="brand">The Python Masterclass</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-6 items-center rtl:space-x-reverse" id="nav-links">
+                    <button onclick="navigate('home')" class="hover:text-pythonYellow font-semibold transition" data-i18n="navHome">Home</button>
+                    <button onclick="navigate('roadmap')" class="hover:text-pythonYellow font-semibold transition" data-i18n="navRoadmap">Roadmap</button>
+                    <button onclick="navigate('gallery')" class="hover:text-pythonYellow font-semibold transition" data-i18n="navGallery">Gallery</button>
+                    <button onclick="navigate('contact')" class="bg-pythonYellow text-pythonBlue px-4 py-2 rounded font-bold hover:bg-yellow-400 transition" data-i18n="navContact">Contact Us</button>
+                </div>
+
+                <!-- Language Selector -->
+                <div class="flex items-center">
+                    <i class="fa-solid fa-globe mr-2 text-pythonYellow"></i>
+                    <select id="langSwitch" onchange="changeLanguage(this.value)" class="bg-pythonDark text-white border-none rounded p-1 outline-none cursor-pointer">
+                        <option value="en">English</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page-section active">
+        <div class="bg-gradient-to-b from-pythonBlue to-pythonDark text-white py-20 text-center">
+            <h1 class="text-5xl font-bold mb-4 text-pythonYellow" data-i18n="heroTitle">Master Python Programming</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-i18n="heroSub">Join The Python Masterclass. Designed for beginners with zero prior experience. No age limit — whether you're a student or an adult, start coding today.</p>
+            <button onclick="navigate('contact')" class="bg-pythonYellow text-pythonBlue px-8 py-3 rounded-full text-lg font-bold hover:bg-yellow-400 transition shadow-lg" data-i18n="heroBtn">Start Learning</button>
+        </div>
+        
+        <div class="max-w-4xl mx-auto py-16 px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 text-pythonBlue" data-i18n="whyTitle">Why Choose This Course?</h2>
+            <div class="grid md:grid-cols-3 gap-8 mt-10">
+                <div class="p-6 bg-white rounded-lg shadow-md border-t-4 border-pythonYellow">
+                    <i class="fa-solid fa-seedling text-4xl text-pythonBlue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2" data-i18n="feat1Title">Absolute Beginners</h3>
+                    <p class="text-gray-600" data-i18n="feat1Desc">We start from the very basics. No prior coding knowledge required.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md border-t-4 border-pythonYellow">
+                    <i class="fa-solid fa-users text-4xl text-pythonBlue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2" data-i18n="feat2Title">All Ages Welcome</h3>
+                    <p class="text-gray-600" data-i18n="feat2Desc">From kids learning logic to adults changing careers, everyone can code.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md border-t-4 border-pythonYellow">
+                    <i class="fa-solid fa-handshake text-4xl text-pythonBlue mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2" data-i18n="feat3Title">1-on-1 Support</h3>
+                    <p class="text-gray-600" data-i18n="feat3Desc">Direct WhatsApp contact for pricing, curriculum details, and mentorship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap / Learning Track Page -->
+    <section id="roadmap" class="page-section">
+        <div class="max-w-4xl mx-auto py-16 px-4">
+            <h2 class="text-4xl font-bold text-center text-pythonBlue mb-6" data-i18n="roadTitle">Learning Roadmap</h2>
+            
+            <!-- Projects Notice -->
+            <div class="bg-yellow-100 border-l-4 border-pythonYellow text-pythonDark p-6 rounded-lg shadow-sm mb-10 flex items-center gap-4">
+                <i class="fa-solid fa-laptop-code text-3xl text-pythonYellow"></i>
+                <p class="text-lg font-bold" data-i18n="roadSubtitle">Project-Based Learning: After every single chapter, you will build multiple hands-on projects to solidify your new skills.</p>
+            </div>
+
+            <!-- Track Modules -->
+            <div class="space-y-4">
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">0.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch0">Functions, Variables</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">1.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch1">Conditionals</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">2.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch2">Loops</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">3.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch3">Exceptions</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">4.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch4">Libraries</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">5.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch5">Unit Tests</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">6.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch6">File I/O</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">7.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch7">Regular Expressions</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">8.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch8">Object-Oriented Programming</div>
+                </div>
+                <div class="flex items-center bg-white p-5 rounded-lg shadow border-l-4 border-pythonBlue hover:-translate-y-1 transition duration-200">
+                    <div class="text-3xl font-black text-gray-200 mr-6 w-8 text-right">9.</div>
+                    <div class="text-xl font-bold text-gray-800" data-i18n="ch9">Et Cetera</div>
+                </div>
+                
+                <!-- Final Project -->
+                <div class="flex items-center bg-gradient-to-r from-pythonBlue to-pythonDark p-6 rounded-lg shadow-lg border-l-4 border-pythonYellow mt-8">
+                    <div class="text-3xl text-pythonYellow mr-6 w-8 text-center"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="text-2xl font-bold text-white" data-i18n="finalProject">Final Capstone Project</div>
+                </div>
+
+                <!-- Certificate of Completion -->
+                <div class="flex items-center bg-white p-6 rounded-lg shadow-lg border-l-4 border-green-500 mt-4">
+                    <div class="text-3xl text-green-500 mr-6 w-8 text-center"><i class="fa-solid fa-certificate"></i></div>
+                    <div>
+                        <div class="text-2xl font-bold text-gray-800" data-i18n="certTitle">Certificate of Completion</div>
+                        <div class="text-gray-600 mt-1" data-i18n="certDesc">Earn a verifiable certificate to showcase your Python skills to employers and schools upon finishing the course.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Page -->
+    <section id="gallery" class="page-section">
+        <div class="max-w-6xl mx-auto py-16 px-4">
+            <h2 class="text-4xl font-bold text-center text-pythonBlue mb-12" data-i18n="galTitle">Our Coding Community</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Kids coding" class="w-full h-64 object-cover rounded-lg shadow-md hover:opacity-90 transition">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Adult coding" class="w-full h-64 object-cover rounded-lg shadow-md hover:opacity-90 transition">
+                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80" alt="Programming on laptop" class="w-full h-64 object-cover rounded-lg shadow-md hover:opacity-90 transition">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80" alt="Woman coding" class="w-full h-64 object-cover rounded-lg shadow-md hover:opacity-90 transition">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Classroom learning" class="w-full h-64 object-cover rounded-lg shadow-md hover:opacity-90 transition">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Code screen" class="w-full h-64 object-cover rounded-lg shadow-md hover:opacity-90 transition">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <div class="max-w-4xl mx-auto py-16 px-4">
+            <h2 class="text-4xl font-bold text-center text-pythonBlue mb-4" data-i18n="contactTitle">Get In Touch</h2>
+            <p class="text-center text-gray-600 mb-10" data-i18n="contactSub">Have questions? Want to discuss pricing or enroll? Send us a message directly to our WhatsApp.</p>
+            
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md border-t-4 border-green-500">
+                <div class="flex justify-center mb-6">
+                    <i class="fa-brands fa-whatsapp text-5xl text-green-500"></i>
+                </div>
+                <!-- WhatsApp Direct Form -->
+                <form id="contactForm">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" data-i18n="formName">Name</label>
+                        <input type="text" id="name" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" data-i18n="formPhone">Your WhatsApp Number</label>
+                        <input type="tel" id="phone" placeholder="+90 555 123 4567" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-2" data-i18n="formDesc">Description / Message</label>
+                        <textarea id="message" rows="4" placeholder="I am interested in..." required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-green-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-600 transition flex justify-center items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span data-i18n="formSubmitWA">Send via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 text-center">
+        <p>&copy; 2026 The Python Masterclass. <span data-i18n="footerText">All rights reserved.</span></p>
+    </footer>
+
+    <!-- Application Logic -->
+    <script>
+        // --- 1. Page Navigation ---
+        function navigate(pageId) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        // --- 2. Translations & i18n ---
+        const translations = {
+            en: {
+                brand: "The Python Masterclass", navHome: "Home", navRoadmap: "Roadmap", navGallery: "Gallery", navContact: "Contact Us",
+                heroTitle: "Master Python Programming",
+                heroSub: "Join The Python Masterclass. Designed for beginners with zero prior experience. No age limit — whether you're a student or an adult, start coding today.",
+                heroBtn: "Start Learning",
+                whyTitle: "Why Choose This Course?",
+                feat1Title: "Absolute Beginners", feat1Desc: "We start from the very basics. No prior coding knowledge required.",
+                feat2Title: "All Ages Welcome", feat2Desc: "From kids learning logic to adults changing careers, everyone can code.",
+                feat3Title: "1-on-1 Support", feat3Desc: "Direct WhatsApp contact for pricing, curriculum details, and mentorship.",
+                roadTitle: "Learning Roadmap", roadSubtitle: "Project-Based Learning: After every single chapter, you will build multiple hands-on projects to solidify your new skills.",
+                ch0: "Functions, Variables", ch1: "Conditionals", ch2: "Loops", ch3: "Exceptions", ch4: "Libraries", ch5: "Unit Tests", ch6: "File I/O", ch7: "Regular Expressions", ch8: "Object-Oriented Programming", ch9: "Et Cetera", finalProject: "Final Capstone Project",
+                certTitle: "Certificate of Completion", certDesc: "Earn a verifiable certificate to showcase your Python skills to employers and schools upon finishing the course.",
+                galTitle: "Our Coding Community",
+                contactTitle: "Get In Touch", contactSub: "Have questions? Want to discuss pricing or enroll? Send us a message directly to our WhatsApp.",
+                formName: "Name", formPhone: "Your WhatsApp Number", formDesc: "Description / Message", formSubmitWA: "Send via WhatsApp",
+                footerText: "All rights reserved."
+            },
+            tr: {
+                brand: "Python Masterclass", navHome: "Ana Sayfa", navRoadmap: "Yol Haritası", navGallery: "Galeri", navContact: "İletişim",
+                heroTitle: "Python Programlamada Uzmanlaşın",
+                heroSub: "Python Masterclass'a katılın. Hiç tecrübesi olmayan yeni başlayanlar için tasarlandı. Yaş sınırı yok — öğrenci veya yetişkin, bugün kodlamaya başlayın.",
+                heroBtn: "Öğrenmeye Başla",
+                whyTitle: "Neden Bu Kurs?",
+                feat1Title: "Yeni Başlayanlar İçin", feat1Desc: "En temelden başlıyoruz. Önceden kodlama bilgisine gerek yok.",
+                feat2Title: "Her Yaşa Uygun", feat2Desc: "Mantık öğrenen çocuklardan kariyer değiştiren yetişkinlere kadar herkes kod yazabilir.",
+                feat3Title: "Birebir Destek", feat3Desc: "Fiyatlandırma ve müfredat detayları için doğrudan WhatsApp iletişimi.",
+                roadTitle: "Öğrenim Yol Haritası", roadSubtitle: "Proje Odaklı Öğrenim: Öğrendiklerinizi pekiştirmek için her bölümden sonra birden fazla pratik proje yapacaksınız.",
+                ch0: "Fonksiyonlar, Değişkenler", ch1: "Koşullu İfadeler", ch2: "Döngüler", ch3: "İstisnalar", ch4: "Kütüphaneler", ch5: "Birim Testleri", ch6: "Dosya Okuma/Yazma", ch7: "Düzenli İfadeler (Regex)", ch8: "Nesne Yönelimli Programlama", ch9: "Ve Diğerleri", finalProject: "Bitirme Projesi",
+                certTitle: "Katılım Sertifikası", certDesc: "Kursu tamamladığınızda, işverenlere ve okullara Python becerilerinizi göstermek için doğrulanabilir bir sertifika kazanın.",
+                galTitle: "Kodlama Topluluğumuz",
+                contactTitle: "Bize Ulaşın", contactSub: "Sorularınız mı var? Kayıt olmak mı istiyorsunuz? Bize doğrudan WhatsApp'tan mesaj gönderin.",
+                formName: "İsim", formPhone: "WhatsApp Numaranız", formDesc: "Açıklama / Mesaj", formSubmitWA: "WhatsApp'tan Gönder",
+                footerText: "Tüm hakları saklıdır."
+            },
+            ar: {
+                brand: "ماستر كلاس بايثون", navHome: "الرئيسية", navRoadmap: "خارطة الطريق", navGallery: "المعرض", navContact: "اتصل بنا",
+                heroTitle: "احترف برمجة بايثون",
+                heroSub: "انضم إلى ماستر كلاس بايثون. مصمم للمبتدئين بدون خبرة سابقة. لا يوجد حد للعمر — ابدأ البرمجة اليوم.",
+                heroBtn: "ابدأ التعلم",
+                whyTitle: "لماذا تختار هذه الدورة؟",
+                feat1Title: "للمبتدئين تماماً", feat1Desc: "نبدأ من الأساسيات. لا يشترط وجود معرفة مسبقة بالبرمجة.",
+                feat2Title: "مرحب بجميع الأعمار", feat2Desc: "من الأطفال إلى البالغين، يمكن للجميع تعلم كتابة الأكواد.",
+                feat3Title: "دعم فردي", feat3Desc: "تواصل مباشر عبر واتساب لمعرفة الأسعار وتفاصيل المنهج.",
+                roadTitle: "خارطة طريق التعلم", roadSubtitle: "التعلم القائم على المشاريع: بعد كل فصل، ستقوم ببناء عدة مشاريع عملية لترسيخ مهاراتك الجديدة.",
+                ch0: "الدوال والمتغيرات", ch1: "الشروط", ch2: "الحلقات", ch3: "الاستثناءات", ch4: "المكتبات", ch5: "اختبارات الوحدة", ch6: "إدخال/إخراج الملفات", ch7: "التعابير النمطية", ch8: "البرمجة الكائنية (OOP)", ch9: "وما إلى ذلك", finalProject: "المشروع النهائي",
+                certTitle: "شهادة إتمام", certDesc: "احصل على شهادة يمكن التحقق منها لعرض مهاراتك في بايثون لأصحاب العمل والمدارس عند إنهاء الدورة.",
+                galTitle: "مجتمع البرمجة لدينا",
+                contactTitle: "تواصل معنا", contactSub: "هل لديك أسئلة؟ هل ترغب في التسجيل؟ أرسل لنا رسالة مباشرة على واتساب.",
+                formName: "الاسم", formPhone: "رقم الواتساب الخاص بك", formDesc: "الوصف / الرسالة", formSubmitWA: "إرسال عبر واتساب",
+                footerText: "جميع الحقوق محفوظة."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            document.getElementById('langSwitch').value = lang;
+        }
+
+        // Initialize Language based on device
+        window.onload = () => {
+            const browserLang = navigator.language.slice(0, 2);
+            const supported = ['en', 'tr', 'ar'];
+            const defaultLang = supported.includes(browserLang) ? browserLang : 'en';
+            changeLanguage(defaultLang);
+        };
+
+        // --- 3. WhatsApp Redirection Logic ---
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Target phone number (international format without the +)
+            const targetNumber = '905349136899';
+            
+            // Construct the message text
+            let text = `Hello! I'm contacting you from the website.%0A%0A`;
+            text += `*Name:* ${name}%0A`;
+            text += `*Their Number:* ${phone}%0A`;
+            text += `*Message:* ${message}`;
+
+            // Redirect user to the WhatsApp app / web page
+            window.open(`https://wa.me/${targetNumber}?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+</html>
